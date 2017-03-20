@@ -1,0 +1,170 @@
+(function() {
+  "use strict";
+  var app = angular.module("myApp", ["ngTable","angularModalService"])
+
+    // customerTableController -  which controlles the customer table
+    .controller('customerTableController', ["NgTableParams", "$filter", "$http", "ModalService", "$window", function(NgTableParams, $filter, $http, ModalService, $window) {      
+      var self = this;
+      var simpleList2;
+
+      function getCustomerData(){
+        $.get( "http://192.168.33.10/restcustomer/app/api/customers", function( data ) {
+          simpleList2 = JSON.parse(data);
+          console.log(simpleList2);
+          self.tableParams = new NgTableParams({}, { dataset: simpleList2});
+        });
+      }
+
+
+      self.del = del;
+      self.edit = edit;
+
+      // delete button
+      function del(row) {
+ 
+        _.remove(self.tableParams.settings().dataset, function(item) {
+          return row === item;
+        });
+
+        self.tableParams.reload().then(function(data) {
+          if (data.length === 0 && self.tableParams.total() > 0) {
+            self.tableParams.page(self.tableParams.page() - 1);
+            self.tableParams.reload();
+          }
+        });
+
+        $http.delete('http://192.168.33.10/restcustomer/app/api/customer/delete/' + row.id, null).then(
+          function success(result){
+            close(result, 500); // close, but give 500ms for bootstrap to animate
+          }, 
+          function err(err){
+            JSON.parse(err);
+            console.log(err);
+          }
+        );
+
+      }
+
+      function edit(row){
+       //Just provide a template url, a controller and call 'showModal'.
+
+        console.log(row);
+        var input = {}
+        input.row = row;
+
+        ModalService.showModal({
+          templateUrl: "register/modal.html",
+          controller: "EditModal",
+          inputs: row
+        }).then(function(modal) {
+          modal.element.modal();
+          modal.close.then(function(result) {
+             //console.log(result);
+            if(result.status === 200){
+               $window.location.reload();
+            }
+          });
+        });
+      }
+
+      getCustomerData();
+    }])
+
+
+    // controller for the registration button
+    .controller('RegisterBottonController', ["$scope", "ModalService","$window", function($scope, ModalService, $window)  { 
+
+     $scope.showYesNo = function() {
+
+     //Just provide a template url, a controller and call 'showModal'.
+        ModalService.showModal({
+          templateUrl: "register/modal.html",
+          controller: "RegisterModal"
+        }).then(function(modal) {
+          modal.element.modal();
+          modal.close.then(function(result) {
+            if(result.status === 200){
+               $window.location.reload();
+            }
+          });
+        });
+      };
+    }])
+
+
+
+    // controller for the registeration popover (Modal)
+    .controller('RegisterModal', ['$scope', 'close', '$http', function($scope, close, $http) {
+      $scope.formData = {};
+
+      $scope.close = function(result) {
+        console.log($scope.formData);
+        var emptyFormData = jQuery.isEmptyObject($scope.formData);
+
+        //make sure the object isn't empty
+        if(!emptyFormData){
+          $http.post('http://192.168.33.10/restcustomer/app/api/customer/add', $scope.formData).then(
+            function success(result){
+              console.log(result);
+              close(result, 500); // close, but give 500ms for bootstrap to animate
+            }, 
+            function err(err){
+              console.log(err);
+            }
+          );          
+        }
+      };
+
+    }])
+
+    // controller for the registeration popover (Modal)
+    .controller('EditModal', ['$scope', '$window', 'close', '$http', 'id', 'nic','first_name', 'last_name', 'phone', 'address', 'email', 'city','district','country',  
+      function($scope, $window, close, $http, id, nic, first_name, last_name, phone, email, address, city, district, country) {
+      $scope.formData = {
+          "id" : id,
+          "nic": nic,
+          "first_name": first_name,
+          "last_name": last_name,
+          "phone": phone,
+          "email": email,
+          "address": address,
+          "city": city,
+          "district": district,
+          "country": country
+      };
+
+      $scope.close = function(result) {
+        console.log($scope.formData);
+        
+        var emptyFormData = jQuery.isEmptyObject($scope.formData);
+
+        //make sure the object isn't empty
+        if(!emptyFormData){
+          var submitData = eval($scope.formData);
+          $http.put('http://192.168.33.10/restcustomer/app/api/customer/update/'+id, $scope.formData).then(
+            function success(result){
+              console.log(result);
+              close(result, 500); // close, but give 500ms for bootstrap to animate
+            }, 
+            function err(err){
+              console.log(err);
+            }
+          );
+        }
+      };
+
+    }])
+
+
+})();
+
+(function() {
+  "use strict";
+  angular.module("myApp").run(setRunPhaseDefaults);
+  setRunPhaseDefaults.$inject = ["ngTableDefaults"];
+
+  function setRunPhaseDefaults(ngTableDefaults) {
+    ngTableDefaults.params.count = 10;
+    ngTableDefaults.settings.counts = [];
+  }
+})();

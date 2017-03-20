@@ -1,0 +1,15 @@
+.logos{
+	margin-top: 10px;
+	background: url('../img/commercial_credit.jpg')no-repeat;
+	background-size: contain;
+	height: 65px;
+	width: 100px;
+}
+
+.register-btn{
+	margin-top: 20px;
+}
+
+.ng-scope.ng-isolate-scope {
+  text-align: center;
+}

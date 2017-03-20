@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/ng-table/1.0.0/ng-table.css" rel="stylesheet" />
+  <link href="css/css.css" rel="stylesheet" />
+</head>
+
+  <div ng-app="myApp" class="container-fluid">
+    
+    <div class="row" ng-controller="RegisterBottonController">
+      <div class="col-xs-6">
+        <div class="logos"></div>
+      </div>
+      <div class="col-xs-6 text-right">
+        <p><a href="" class="btn btn-default btn-sm  btn-primary register-btn" ng-click="showYesNo()">Registration</a></p>
+      </div>      
+    </div>  
+
+    <div class="row" ng-controller="customerTableController as demo">
+      <div class="col-xs-12">
+
+        
+        <!-- <img src= "img/commercial_credit.jpg"/> -->
+
+        <!-- NG Table For Customers -->
+        <table ng-table="demo.tableParams" class="table table-condensed table-bordered table-striped">
+          <tr ng-repeat="row in $data">
+            <td>
+              <button class="btn btn-danger btn-sm" ng-click="demo.del(row)"><span class="glyphicon glyphicon-trash"></span></button>
+              <button class="btn btn-default btn-sm" ng-click="demo.edit(row)"><span class="glyphicon glyphicon-pencil"></span></button>
+            </td>             
+            <!-- <td data-title="'Customer ID'" filter="{id: 'number'}">{{row.id}}</td> -->
+            <td data-title="'National ID Number'" filter="{nic: 'text'}">{{row.nic}}</td>
+            <td data-title="'First Name'" filter="{first_name: 'text'}">{{row.first_name}}</td>
+            <td data-title="'Last Name'" filter="{last_name: 'text'}">{{row.last_name}}</td> 
+            <td data-title="'Phone'" filter="{phone: 'text'}">{{row.phone}}</td>   
+            <td data-title="'Email'" filter="{email: 'text'}">{{row.email}}</td>   
+            <td data-title="'Address'" filter="{address: 'text'}">{{row.address}}</td>       
+            <td data-title="'City'" filter="{city: 'text'}">{{row.city}}</td>
+            <td data-title="'District'" filter="{district: 'text'}">{{row.district}}</td>   
+            <td data-title="'Country'" filter="{country: 'text'}">{{row.country}}</td> 
+
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  
+  </div>
+
+
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/lodash/dist/lodash.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+  <script src="http://code.angularjs.org/1.2.4/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-table/1.0.0/ng-table.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+
+</html>
