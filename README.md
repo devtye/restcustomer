@@ -4,6 +4,7 @@
 
 ### Requirement 
 For easy configuration I recommend downloading and installing following.
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [Scotch Box](https://box.scotch.io/) 
 	1. open command prompt
 	2. run this command - `cd Desktop`
@@ -28,13 +29,19 @@ remove the git folder in devenv so it does not confilct with your project repo
 	- MacOS	  : example `cd ~\desktop\devenv`
 2. check to see if vagrant is installed - `vagrant -v` or `vagrant -version`
 3. to fire up the server - `vagrant up`
-4. wait for box to be completed.
+4. wait for box to be complete.
 
-### Setting restustomer insdie the scotch box
+### Intial Set Up for restustomer inside the scotch box
 1. go to server(devenv/public) folder in command prompt
 	- Windows : example `cd C:/Users/wasan/Desktop/devenv/public`
 	- MacOS	  : example `cd ~\desktop\devenv\public`
 2. go to `git clone https://github.com/devtye/restcustomer.git`
+3. go back to root folder - `cd ..`
+4. logging into the vagrant virtual server - `vagrant ssh`
+5. locating restcusomer in virtual server - `cd /var/www/public/restcustomer`
+6. installing dependencies by composer and bower
+	1. `composer install`
+	2. `bower install`
 
 
 
