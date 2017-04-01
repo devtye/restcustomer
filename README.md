@@ -3,11 +3,11 @@
 ## Getting Started
 
 ### Requirement 
-For easy configuration I recommend downloading 
+For easy configuration I recommend downloading and installing following
 	- [Scotch Box](https://box.scotch.io/) 
-		- open command prompt
-		- run this command - `cd Desktop`
-		- run this command - `git devenv https://github.com/scotch-io/scotch-box.git my-project` 
+		1. open command prompt
+		2. run this command - `cd Desktop`
+		3. run this command - `git devenv https://github.com/scotch-io/scotch-box.git my-project` 
 	- [Vagrant](https://www.vagrantup.com/downloads.html)
 	- [Virtual Box](https://www.virtualbox.org/wiki/Downloads)
 
