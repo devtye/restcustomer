@@ -14,7 +14,7 @@ For easy configuration I recommend downloading and installing following.
 remove the git folder in devenv so it does not confilct with your project repo
 
 #### For Windows - Run Following commads in you your command prompt 
-1. go to your project folder in command prompt -  example `cd C:/Users/wasan/Desktop/devenv`
+1. go to your project folder in command prompt -  example `cd C:\Users\wasan\Desktop\devenv`
 2. run this command - `del /F /D /Q /A .git`
 3. run this command - `rmdir .git`
 
@@ -56,7 +56,7 @@ remove the git folder in devenv so it does not confilct with your project repo
 	- [ Data http://192.168.33.10/restcustomer/app/api/customers](http://192.168.33.10/restcustomer/app/api/customers)
 	- [ UI http://192.168.33.10/restcustomer/client](http://192.168.33.10/restcustomer/client)
 
-## Basic Vagrant controls
+## Basic Vagrant Controls
 - start sever - `vagrant up`
 - reload sever - `vagrant reload`
 - login to server - `vagrant ssh`
