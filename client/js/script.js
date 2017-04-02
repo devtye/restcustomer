@@ -3,7 +3,7 @@
   var app = angular.module("myApp", ["ngTable","angularModalService"])
 
     // customerTableController -  which controlles the customer table
-    .controller('customerTableController', ["NgTableParams", "$scope", "$filter", "$http", "ModalService", "$window", function(NgTableParams, $scope, $filter, $http, ModalService, $window) {      
+    .controller('customerTableController', ["NgTableParams", "$filter", "$http", "ModalService", "$window", "$scope", function(NgTableParams, $filter, $http, ModalService, $window, $scope) {      
       var self = this;
       var simpleList2;
 
@@ -30,7 +30,6 @@
           }, 
           function err(err){
             JSON.parse(err);
-            console.log(err);
           }
         );
       }
@@ -56,8 +55,9 @@
         });
       }
 
-      $scope.register = function(){
-       //Just provide a template url, a controller and call 'showModal'.
+     $scope.register = function() {
+
+     //Just provide a template url, a controller and call 'showModal'.
         ModalService.showModal({
           templateUrl: "register/modal.html",
           controller: "RegisterModal"
@@ -69,7 +69,7 @@
             }
           });
         });
-      }
+      };
 
     }])
 
@@ -78,7 +78,6 @@
       $scope.formData = {};
 
       $scope.close = function(result) {
-        console.log($scope.formData);
         var emptyFormData = jQuery.isEmptyObject($scope.formData);
 
         //make sure the object isn't empty
