@@ -3,13 +3,13 @@
 ### Requirement 
 For easy configuration I recommend downloading and installing following.
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [Virtual Box](https://www.virtualbox.org/wiki/Downloads)
+- [Vagrant](https://www.vagrantup.com/downloads.html)
 - [Scotch Box](https://box.scotch.io/) 
 	1. open command prompt
 	2. run this command -  **Windows** `cd Desktop` or  **MacOS** for `cd ~/desktop/devenv`
 	3. run this command - `git clone https://github.com/scotch-io/scotch-box.git devenv`
 	4. know that folder name `devenv` in the desktop is your dev enviorment
-- [Vagrant](https://www.vagrantup.com/downloads.html)
-- [Virtual Box](https://www.virtualbox.org/wiki/Downloads)
 
 ### Remove The Git Folder
 remove the git folder in devenv so it does not confilct with your project repo
@@ -64,7 +64,7 @@ remove the git folder in devenv so it does not confilct with your project repo
 - login to server - `vagrant ssh`
 - logout of vagrant - `logout`
 - stop vagrant - `vagrant halt`
-- destroy vagrant (kills the instance, will need to setup database again) - `vagrant destroy`
+- destroy vagrant (kills the instance, will need to setup database again - 'reset') - `vagrant destroy`
 
 
 
