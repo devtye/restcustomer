@@ -10,29 +10,29 @@ For easy configuration I recommend downloading and installing following.
 - [Vagrant](https://www.vagrantup.com/downloads.html)
 - [Virtual Box](https://www.virtualbox.org/wiki/Downloads)
 
-### Remove the git floder
+### Remove The Git Folder
 remove the git folder in devenv so it does not confilct with your project repo
 
-#### For Windows - Run Following commads in you your command prompt 
+#### For Windows - Run following commads in your command prompt 
 1. go to your project folder in command prompt -  example `cd C:\Users\wasan\Desktop\devenv`
-2. run this command - `del /F /D /Q /A .git`
-3. run this command - `rmdir .git`
+2. `del /F /D /Q /A .git`
+3. `rmdir .git`
 
-#### For Mac - Run Following commad in you your command prompt
+#### For Mac - Run following commads in your command prompt 
 - run this command - `git rm -rf .git`
 
 ### Start Your Virtual Server
 1. go to server(devenv) folder in command prompt 
-	- Windows : example `cd C:\Users\wasan\Desktop\devenv`
-	- MacOS	  : example `cd ~/desktop/devenv`
+	- **Windows** : example `cd C:\Users\wasan\Desktop\devenv`
+	- **MacOS**	  : example `cd ~/desktop/devenv`
 2. check to see if vagrant is installed - `vagrant -v` or `vagrant -version`
 3. to fire up the server - `vagrant up`
 4. wait for box to be complete.
 
 ### Intial Setup For RestCustomer Inside The Scotchbox
 1. go to server(devenv/public) folder in command prompt
-	- Windows : example `cd C:\Users\wasan\Desktop\devenv\public`
-	- MacOS	  : example `cd ~/desktop/devenv/public`
+	- **Windows** : example `cd C:\Users\wasan\Desktop\devenv\public`
+	- **MacOS**	  : example `cd ~/desktop/devenv/public`
 2. clone to restcustomer to your computer - `git clone https://github.com/devtye/restcustomer.git`
 3. go back to root folder - `cd ..`
 4. logging into the vagrant virtual server - `vagrant ssh`
@@ -42,17 +42,17 @@ remove the git folder in devenv so it does not confilct with your project repo
 	2. `bower install`
 7. logout from vagrant - `logout`
 
-### Intial Database setup
+### Intial Database Setup
 1. go to server(devenv) folder in command prompt
-	- Windows : example `cd C:\Users\wasan\Desktop\devenv\`
-	- MacOS	  : example `cd ~/desktop/devenv/public`
+	- **Windows** : example `cd C:\Users\wasan\Desktop\devenv\`
+	- **MacOS**	  : example `cd ~/desktop/devenv/public`
 2. login to your virtual server - `vagrant ssh`
 3. locate sql/customer in virtual server
 	- run command - `cd /var/www/public/restcustomer/sql`
 4. import your sql statment that this saved on `sql/customer.sql`
 	- run command -  `mysql -u root -p scotchbox < customer.sql`
 	- password -  `root`
-5. verify if the data is loaded go to url
+5. go to url to verify if the data is loaded.
 	- [ Data http://192.168.33.10/restcustomer/app/api/customers](http://192.168.33.10/restcustomer/app/api/customers)
 	- [ UI http://192.168.33.10/restcustomer/client](http://192.168.33.10/restcustomer/client)
 
