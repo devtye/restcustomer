@@ -5,8 +5,9 @@ For easy configuration I recommend downloading and installing following.
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [Scotch Box](https://box.scotch.io/) 
 	1. open command prompt
-	2. run this command - `cd Desktop`
-	3. run this command - `git devenv https://github.com/scotch-io/scotch-box.git my-project` 
+	2. run this command -  **Windows** `cd Desktop` or  **MacOS** for `cd ~/desktop/devenv`
+	3. run this command - `git clone https://github.com/scotch-io/scotch-box.git devenv`
+	4. know that folder name `devenv` in the desktop is your dev enviorment
 - [Vagrant](https://www.vagrantup.com/downloads.html)
 - [Virtual Box](https://www.virtualbox.org/wiki/Downloads)
 
@@ -18,8 +19,9 @@ remove the git folder in devenv so it does not confilct with your project repo
 2. `del /F /D /Q /A .git`
 3. `rmdir .git`
 
-#### For Mac - Run following commads in your command prompt 
-- run this command - `git rm -rf .git`
+#### For Mac - Run following commads in your command prompt
+1. go to your project folder in command prompt -  example `cd ~/desktop/devenv`
+2. run this command - `git rm -rf .git`
 
 ### Start Your Virtual Server
 1. go to server(devenv) folder in command prompt 
@@ -53,8 +55,8 @@ remove the git folder in devenv so it does not confilct with your project repo
 	- run command -  `mysql -u root -p scotchbox < customer.sql`
 	- password -  `root`
 5. go to url to verify if the data is loaded.
-	- [ Data http://192.168.33.10/restcustomer/app/api/customers](http://192.168.33.10/restcustomer/app/api/customers)
-	- [ UI http://192.168.33.10/restcustomer/client](http://192.168.33.10/restcustomer/client)
+	- [ Data - http://192.168.33.10/restcustomer/app/api/customers](http://192.168.33.10/restcustomer/app/api/customers)
+	- [ UI - http://192.168.33.10/restcustomer/client](http://192.168.33.10/restcustomer/client)
 
 ## Basic Vagrant Controls
 - start sever - `vagrant up`
@@ -62,7 +64,7 @@ remove the git folder in devenv so it does not confilct with your project repo
 - login to server - `vagrant ssh`
 - logout of vagrant - `logout`
 - stop vagrant - `vagrant halt`
-- destroy vagrant (kills the instance, will need set up database again) - `vagrant destroy`
+- destroy vagrant (kills the instance, will need to setup database again) - `vagrant destroy`
 
 
 
