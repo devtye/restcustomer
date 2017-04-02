@@ -29,7 +29,7 @@ remove the git folder in devenv so it does not confilct with your project repo
 3. to fire up the server - `vagrant up`
 4. wait for box to be complete.
 
-### Intial Set Up for restustomer inside the scotch box
+### Intial Setup For RestCustomer Inside The Scotchbox
 1. go to server(devenv/public) folder in command prompt
 	- Windows : example `cd C:\Users\wasan\Desktop\devenv\public`
 	- MacOS	  : example `cd ~/desktop/devenv/public`
